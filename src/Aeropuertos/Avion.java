@@ -1,5 +1,7 @@
 package Aeropuertos;
 
+import java.util.Objects;
+
 public class Avion {
     private int id;
     private String piloto;
@@ -45,5 +47,18 @@ public class Avion {
                 ", piloto='" + piloto + '\'' +
                 ", capacidadPasajeros=" + capacidadPasajeros +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Avion avion = (Avion) o;
+        return id == avion.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
